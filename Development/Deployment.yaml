@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: foxapp-deployment
+spec:
+  selector:
+    matchlabels:
+      app: foxapp
+  replicas: 2
+  template: 
+    metadata:
+      labels:
+        app: foxapp
+    spec: 
+      containers:
+      - name: foxapp
+        image: aleqxan/argocd-fox:1.0
+        ports:
+        - containerPort: 8080
